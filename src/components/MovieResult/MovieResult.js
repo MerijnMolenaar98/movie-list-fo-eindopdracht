@@ -6,10 +6,14 @@ import Rating from "../Rating/Rating";
 function MovieResult({movieId, name, year, logo, showLiked, rating, ratingEditable}) {
     const username = sessionStorage.getItem("user");
 
+    const onClick = (() => {
+        window.location.pathname = "/movie/" + movieId;
+    });
+
     return (
         <article>
-            <img src={logo} alt="movie-poster" className="logo"/>
-            <div className="movie-info-text">
+            <img onClick={onClick} src={logo} alt="movie-poster" className="logo"/>
+            <div onClick={onClick} className="movie-info-text">
                 <div>{name}</div>
                 <div>{year}</div>
             </div>

@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import FollowPage from "./pages/FollowPage/FollowPage";
 import UserSearchPage from "./pages/UserSearchPage/UserSearchPage";
+import MoviePage from "./pages/MoviePage/MoviePage";
 
 function App() {
     let user = sessionStorage.getItem('user');
@@ -38,7 +39,7 @@ function App() {
                 {
                     user ?
                         <Route path="/movie/:id">
-                            <FollowPage />
+                            <MoviePage />
                         </Route>
                         : ''
                 }
