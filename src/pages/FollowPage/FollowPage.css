@@ -1,0 +1,7 @@
+.scroll-follow {
+    height: 450px;
+    overflow-y: scroll;
+}
+.user-search-button {
+    margin-top: 5px;
+}

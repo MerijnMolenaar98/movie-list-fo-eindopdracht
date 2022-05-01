@@ -1,0 +1,15 @@
+.item {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+.menu-text {
+    margin-left: 2px;
+}
+
+.active {
+    background-color: #F9A517;
+}

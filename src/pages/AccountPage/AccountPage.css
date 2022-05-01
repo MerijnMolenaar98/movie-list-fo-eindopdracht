@@ -1,0 +1,21 @@
+button {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+}
+.content {
+    flex: 9;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+.option-group {
+    width: 100%;
+}
+.creation-text {
+    text-align: center;
+}

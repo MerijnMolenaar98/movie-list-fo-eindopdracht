@@ -1,0 +1,8 @@
+main {
+    margin: 0 26% 0 26%;
+    height: 100vh;
+    background-color: #FEFEFE;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px 1px;
+}

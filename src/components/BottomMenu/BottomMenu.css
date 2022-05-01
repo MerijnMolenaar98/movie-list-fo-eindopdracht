@@ -1,0 +1,16 @@
+nav {
+    flex-grow: 1;
+    display: flex;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex: 1;
+}
+li {
+    display: flex;
+    flex: 1;
+    border: solid 1px;
+}

@@ -1,0 +1,18 @@
+.user-result {
+    display: flex;
+    justify-content: space-evenly;
+}
+.name {
+    flex: 2;
+    margin-left: 30px;
+}
+.button {
+    flex: 2;
+    background-color: #F9A517;
+    margin-right: 30px;
+}
+.button-unfollow {
+    flex: 2;
+    background-color: #3C3C3C;
+    margin-right: 30px;
+}

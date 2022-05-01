@@ -1,0 +1,15 @@
+.content {
+    flex: 9;
+}
+.scroll {
+    height: 500px;
+    overflow-y: scroll;
+}
+.page-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+select {
+    height: 25px;
+}

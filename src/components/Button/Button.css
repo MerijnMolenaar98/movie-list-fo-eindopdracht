@@ -1,0 +1,13 @@
+button {
+    color: white;
+    border: none;
+}
+.link {
+    width: 100%;
+}
+.primary {
+    background-color: #F9A517;
+}
+.secondary {
+    background-color: #3C3C3C;
+}
