@@ -16,7 +16,6 @@ function ListPage() {
         async function fetchData() {
             const username = sessionStorage.getItem("user");
 
-
             if (followChoice === myList) {
                 const docRef = doc(getFireBaseDatabase(), "lists", username);
                 const docSnap = await getDoc(docRef);
