@@ -1,5 +1,5 @@
 import './App.css';
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import BottomMenu from "./components/BottomMenu/BottomMenu";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ListPage from "./pages/ListPage/ListPage";
@@ -10,70 +10,58 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import FollowPage from "./pages/FollowPage/FollowPage";
 import UserSearchPage from "./pages/UserSearchPage/UserSearchPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
-    let user = sessionStorage.getItem('user');
     return (
         <main>
             <Switch>
                 <Route exact path="/">
-                    {user ?  <Redirect to="/search" /> : <LoginPage />}
+                    <LoginPage />
                 </Route>
                 <Route path="/register">
                     <RegisterPage />
                 </Route>
-                {
-                    user ?
-                    <Route path="/search">
+                <Route path="/search">
+                    <ProtectedRoute>
                         <SearchPage/>
-                    </Route>
-                    : ''
-                }
-                {
-                    user ?
-                        <Route path="/follow">
-                            <FollowPage />
-                        </Route>
-                        : ''
-                }
-                {
-                    user ?
-                        <Route path="/movie/:id">
-                            <MoviePage />
-                        </Route>
-                        : ''
-                }
-                {
-                    user ?
-                        <Route path="/user-search">
-                            <UserSearchPage />
-                        </Route>
-                        : ''
-                }
-                {
-                    user ?
-                        <Route path="/list">
-                            <ListPage/>
-                        </Route>
-                        : ''
-                }
-
-                {
-                    user ?
-                        <Route path="/rating">
-                            <RatingPage/>
-                        </Route>
-                        : ''
-                }
-                {
-                    user ?
-                        <Route path="/account">
-                            <AccountPage/>
-                        </Route>
-                        : ''
-                }
+                        <BottomMenu />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/follow">
+                    <ProtectedRoute>
+                        <FollowPage />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/movie/:id">
+                    <ProtectedRoute>
+                        <MoviePage />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/user-search">
+                    <ProtectedRoute>
+                        <UserSearchPage />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/list">
+                    <ProtectedRoute>
+                        <ListPage/>
+                        <BottomMenu />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/rating">
+                    <ProtectedRoute>
+                        <RatingPage/>
+                        <BottomMenu />
+                    </ProtectedRoute>
+                </Route>
+                <Route path="/account">
+                    <ProtectedRoute>
+                        <AccountPage/>
+                        <BottomMenu />
+                    </ProtectedRoute>
+                </Route>
             </Switch>
-            {user ? <BottomMenu/> : ''}
         </main>
     );
 }

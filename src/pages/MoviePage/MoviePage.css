@@ -1,0 +1,15 @@
+.content-movie {
+    display: flex;
+    flex-direction: row;
+}
+.information {
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-weight: bold;
+}
+.movie-poster {
+    height: 200px;
+    width: 140px;
+}

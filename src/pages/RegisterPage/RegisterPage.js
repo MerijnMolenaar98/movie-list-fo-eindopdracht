@@ -4,6 +4,7 @@ import Button from "../../components/Button/Button";
 import {useForm} from "react-hook-form";
 import { doc, setDoc, getDoc, Timestamp} from "firebase/firestore";
 import {getFireBaseDatabase} from "../../middleware/firebase";
+import {useHistory} from "react-router-dom";
 
 const db = getFireBaseDatabase();
 
@@ -16,6 +17,7 @@ async function usernameExists(username) {
 function RegisterPage() {
     const [customError, setCustomError] = useState('');
     const {register, formState: { errors }, handleSubmit, getValues} = useForm();
+    const history = useHistory();
     const signUp = (async (data) => {
         if (!await usernameExists(data.username)) {
 
@@ -36,7 +38,7 @@ function RegisterPage() {
                 following: [],
                 password: data.password
             }).then(() => {
-                window.location.pathname = "/";
+                history.push("/");
             }).catch((e) => {
                 console.error(e);
             });

@@ -2,12 +2,14 @@ import React from "react";
 import "./MovieResult.css";
 import LikeButton from "../LikeButton/LikeButton";
 import Rating from "../Rating/Rating";
+import {useHistory} from "react-router-dom";
 
 function MovieResult({movieId, name, year, logo, showLiked, rating, ratingEditable}) {
     const username = sessionStorage.getItem("user");
+    const history = useHistory();
 
     const onClick = (() => {
-        window.location.pathname = "/movie/" + movieId;
+       history.push( "/movie/" + movieId);
     });
 
     return (

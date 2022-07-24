@@ -3,6 +3,7 @@ import "./AccountPage.css";
 import Button from "../../components/Button/Button";
 import {doc, getDoc, deleteDoc, updateDoc, setDoc} from "firebase/firestore";
 import {getFireBaseDatabase} from "../../middleware/firebase";
+import {useHistory} from "react-router-dom";
 
 async function getRegisterDate() {
     let username = sessionStorage.getItem('user');
@@ -18,6 +19,7 @@ async function getRegisterDate() {
 function AccountPage() {
     const [registerDate, setRegisterDate] = useState('');
     const username = sessionStorage.getItem("user");
+    const history = useHistory();
     let dateResult = getRegisterDate();
     dateResult.then((result) => {
         const timestamp = result.get("created");
@@ -80,7 +82,7 @@ function AccountPage() {
                 password: newPassword
             }).then(() => {
                 sessionStorage.clear();
-                window.location.pathname = "/";
+                history.push("/");
             });
         }
     });
@@ -96,7 +98,7 @@ function AccountPage() {
                 await updateDoc(docListsRef, {
                     movies: []
                 }).then(() => {
-                    window.location.pathname = "/account";
+                    history.push("/account");
                 });
             });
         }
@@ -107,7 +109,7 @@ function AccountPage() {
         if (accountName === username) {
             await deleteAccount(username).then(() => {
                 sessionStorage.clear();
-                window.location.pathname = "/";
+                history.push("/");
             });
         }
     });
